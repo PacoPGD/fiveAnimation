@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% comment %} Página de inicio del sitio web {% endcomment %}
+
+{% block titulo %} Inicio {% endblock %}
+
+{% block style_css %}
+
+{% endblock %}
+
+{% block encabezado %}
+
+{% endblock %}
+
+{% block contenido %}
+{% if user.is_authenticated %}
+REGISTRAR NUEVA APLICACION
+<!--
+	<form id='formulario' method='post' enctype='multipart/form-data' action=''>{% csrf_token %}
+		<table>{{formulario}}</table>
+		<p><input type='submit' value='Confirmar'/></p>
+		</form>
+-->
+<form id='formulario' method='post' enctype='multipart/form-data' action=''><div style='display:none'><input type='hidden' name='csrfmiddlewaretoken' value='UGEI57wKjFA59m14cNPytEc3msQUEdiu' /></div>
+<table><tr><th><label for="id_titulo">Titulo:</label></th><td><ul class="errorlist"><input id="id_titulo" type="text" name="titulo" maxlength="100" /></td></tr>
+<tr><th><label for="id_tipo">Tipo:</label></th><td><ul class="errorlist"><select name="tipo" id="id_tipo">
+<option value="" selected="selected">---------</option>
+<option value="Animacion">Animacion</option>
+<option value="Juego">Juego</option>
+<option value="Otro">Otro</option>
+</select></td></tr>
+<tr><th><label for="id_tags">Tags:</label></th><td><ul class="errorlist"><select multiple="multiple" name="tags" id="id_tags">
+	{% for dato in metas %}
+<option value={{dato.id}}>{{dato.nombre}}</option>
+	{% endfor %}
+</select></td><td><button type="button"><a href='/nuevoTag'>Crear Tag</a></button></td></tr>
+<tr><th><label for="id_codigo">Codigo:</label></th><td><ul class="errorlist"><textarea id="id_codigo" rows="10" cols="40" name="codigo"></textarea></td></tr>
+<tr><th><label for="id_sobre">Sobre:</label></th><td><ul class="errorlist"><textarea id="id_sobre" rows="10" cols="40" name="sobre"></textarea></td></tr>
+<tr><th><label for="id_imagen">Imagen:</label></th><td><ul class="errorlist"><input type="file" name="imagen" id="id_imagen" /></td></tr>
+<tr><th><label for="id_usuario">Usuario:</label></th><td><ul class="errorlist"><select name="usuario" id="id_usuario" value=>
+<option value={{user.id}}>{{ user.username }}</option>
+</select></td></tr></table>
+		<p><input type='submit' value='Confirmar'/></p>
+</form>
+
+
+
+
+
+
+{% else %}
+PARA SUBIR APLICACIONES TIENES QUE ESTAR REGISTRADO
+{% endif %}
+
+
+{% endblock %}

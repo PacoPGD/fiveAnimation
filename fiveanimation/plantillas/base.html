@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang ='es'>
+	<head>
+		<meta charset='utf-8'>
+		<title>FIVEANIMATIONS - {% block titulo %} {% endblock %}</title>
+		<link rel='stylesheet' href='{{STATIC_URL}}css/base.css'>
+		{% block encabezado %}	{% endblock %}
+	</head>
+	<body>
+		<header>
+			
+				{% if user.is_authenticated %}
+					Bienvenido {{ user.username }} 
+					<button type="button"><a href='/cerrar'>Cerrar sesion</a></button>
+				{% else %}
+					<button type="button"><a href='/ingresar'>Ingresar</a></button>
+					<button type="button"><a href='/registro'>Registrarse</a></button>	
+				{% endif %}
+			<h1 class="fontface"><img src='{{STATIC_URL}}img/five.jpg' width=75 height=75> ANIMATIONS </h1>
+		<nav>
+				<button type="button"><a href='/'>Inicio</a></button>
+				<button type="button"><a href='/animaciones'>Animaciones</a>
+				<button type="button"><a href='/juegos'>Juegos</a>
+				<button type="button"><a href='/otros'>Otros</a></button>
+				<button type="button"><a href='/nuevaApp'>Subir Contenido</a></button>
+				<button type="button"><a href='/sobre'>Sobre</a></button>
+					
+				<form action="/search/" method="get">
+				<input type="text" name="q">
+				<input type="submit" value="Search">
+				</form>	
+		</nav>
+		
+		<hr>
+		</header>
+		<section class='contenido'>
+			{% block contenido %}{% endblock %}
+		</section>
+	</body>
+</html>

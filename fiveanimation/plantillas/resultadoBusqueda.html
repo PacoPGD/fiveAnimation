@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% comment %} Página de inicio del sitio web {% endcomment %}
+
+{% block titulo %} Inicio {% endblock %}
+
+{% block style_css %}
+
+{% endblock %}
+
+{% block encabezado %}
+
+{% endblock %}
+
+{% block contenido %}
+<p>Has buscado: <strong>{{ query }}</strong></p>
+{% if aplicaciones %}
+<p>Encontradas {{ aplicaciones|length }} aplicaciones.</p>
+
+{% for dato in aplicaciones %}
+	<con><a href='/runApp/{{dato.id}}'><img src={{MEDIA_URL}}{{dato.imagen}} width=150 height=150><br>
+	<center>{{dato.titulo}}</center><center>subido por {{dato.usuario}}</center></a></con>
+
+{% endfor %}
+
+{% else %}
+<p>No se encontraron aplicaciones</p>
+{% endif %}
+{% endblock %}
+
+
+

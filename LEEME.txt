@@ -1,0 +1,3 @@
+UNA VEZ EJECUTADA LA PÁGINA EN LA SECCIÓN "SOBRE" ESTAN COMENTADOS ALGUNOS DETALLES.
+El usuario principal es: user: paco 
+			 pass: paco

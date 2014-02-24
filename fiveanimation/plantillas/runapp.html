@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% comment %} Página de inicio del sitio web {% endcomment %}
+
+{% block titulo %} Inicio {% endblock %}
+
+{% block style_css %}
+
+{% endblock %}
+
+{% block encabezado %}
+
+{% endblock %}
+
+<!-- Script de pruebas
+			<script>
+		window.addEventListener('load',init,false);
+		var canvas=null,ctx=null;
+		function init(){
+ 		  canvas=document.getElementById('canvas');
+ 		  canvas.style.background='#999';
+ 		  ctx=canvas.getContext('2d');
+ 		  paint(ctx);
+		}
+		function paint(ctx){
+ 		  ctx.fillStyle='#0f0';
+ 		  ctx.fillRect(50,50,100,60);
+		}
+		</script>
+-->
+
+
+
+{% block contenido %}
+
+
+
+{% for dato in aplicaciones %}
+	{% if dato.id == ide %}
+		<h1>{{dato.titulo}}</h1>
+		<canvas id="canvas" width="300" height="150" style="border:1px solid #000">
+		Canvas no soportado por tu navegador
+		</canvas>  <pre>{{dato.sobre}}</pre>
+		<h2>Subido por: {{dato.usuario}}</h2>
+		<h3>Tipo: {{dato.tipo}}<br>
+		Subido el {{dato.tiempo_registro}}</h3>	
+		{% autoescape off %} 
+		<script>
+		{{dato.codigo}} 
+		</script>
+		{% endautoescape %} 	
+	{% endif %}
+{% endfor %}
+
+
+{% endblock %}
+
+
+
+
+

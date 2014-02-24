@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% comment %} Página de inicio del sitio web {% endcomment %}
+
+{% block titulo %} Inicio {% endblock %}
+
+{% block style_css %}
+
+{% endblock %}
+
+{% block encabezado %}
+
+{% endblock %}
+
+{% block contenido %}
+{% if user.is_authenticated %}
+REGISTRAR NUEVO TAG
+
+	<form id='formulario' method='post' enctype='multipart/form-data' action=''>{% csrf_token %}
+		<table>{{formulario}}</table>
+		<p><input type='submit' value='Confirmar'/></p>
+		</form>
+
+{% else %}
+PARA SUBIR APLICACIONES TIENES QUE ESTAR REGISTRADO
+{% endif %}
+
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block titulo %} Registro {% endblock %}
+
+{% block encabezado %}
+
+{% endblock %}
+
+{% block contenido %}
+{% if user.is_authenticated %}
+<H1>YA ESTAS REGISTRADO</H1>
+
+{% else %}
+Registro
+	<form id='formulario' method='post' action=''><div style='display:none'><input type='hidden' name='csrfmiddlewaretoken' value='UGEI57wKjFA59m14cNPytEc3msQUEdiu' /></div>
+		<table><tr><th><label for="id_username">Nombre de usuario:</label></th><td><ul class="errorlist"><input id="id_username" type="text" name="username" maxlength="30" /><br /><span class="helptext">Requerido. 30 caracteres o menos. Letras, dígitos y @/./+/-/_ solamente.</span></td></tr>
+<tr><th><label for="id_password1">Contraseña:</label></th><td><ul class="errorlist"><input type="password" name="password1" id="id_password1" /></td></tr>
+<tr><th><label for="id_password2">Contraseña (confirmación):</label></th><td><ul class="errorlist"><input type="password" name="password2" id="id_password2" /><br /><span class="helptext">Introduzca la misma contraseña que arriba, para verificación.</span></td></tr></table>
+		<p><input type='submit' value='Registrar'/></p>
+	</form>	
+{% endif %}
+
+{% endblock %}

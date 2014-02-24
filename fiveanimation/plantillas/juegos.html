@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% comment %} Sección de juegos subidos a la web {% endcomment %}
+
+{% block titulo %} Juegos {% endblock %}
+
+{% block style_css %}
+
+{% endblock %}
+
+{% block encabezado %}
+
+{% endblock %}
+
+{% block contenido %}
+JUEGOS<br><br>
+
+{% for dato in aplicaciones %}
+  {% if dato.tipo == 'Juego' %}
+	<con><a href='/runApp/{{dato.id}}'><img src={{MEDIA_URL}}{{dato.imagen}} width=150 height=150><br>
+	<center>{{dato.titulo}}</center><center>subido por {{dato.usuario}}</center></a></con>
+  {% endif %}
+{% endfor %}
+
+{% endblock %}
